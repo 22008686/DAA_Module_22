@@ -5,11 +5,13 @@ To find the longest string (or strings) that is a substring (or are substrings) 
 
 ## Algorithm:
 ```
-1. Initialize Variables
-2. Fill the DP Table
-3. Extract the Longest Common Substring
-4. Dynamic Programming with Space Optimization
-5. Rolling Hash (Rabin-Karp Style)
+1.Create a 2D table lookup of size (m+1) x (n+1), where m and n are the lengths of strings X and Y, respectively.
+2.Initialize maxLength as 0 and endingIndex as m to store the end index of the longest common substring.
+3.Loop through each character of both strings (X[i-1] and Y[j-1]):
+4.If the characters match, update lookup[i][j] = lookup[i-1][j-1] + 1.
+5.If the characters don't match, set lookup[i][j] = 0.
+6.Track the maximum length found and update maxLength and endingIndex accordingly.
+7.The longest common substring is the substring of X that starts from endingIndex - maxLength and ends at endingIndex.
 ```
 ## Program:
 ```
