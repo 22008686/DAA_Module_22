@@ -4,9 +4,14 @@
 Given a sequence, find the length of the longest palindromic subsequence in it.
 
 ## Algorithm:
-1. Initialization
-2. DP Transition
-3. Final Result
+```
+1.Create a 2D table dp where dp[i][j] represents the length of the longest palindromic subsequence in the substring X[i...j].
+2.Set dp[i][i] = 1 for all i because each individual character is a palindrome of length 1.
+3.For substrings of length 2 to n:
+4.If X[i] == X[j], then dp[i][j] = dp[i+1][j-1] + 2 (i.e., we can extend the palindrome by including both X[i] and X[j]).
+5.Otherwise, dp[i][j] = max(dp[i+1][j], dp[i][j-1]) (i.e., we take the maximum length by ignoring one of the characters).
+6. The length of the longest palindromic subsequence for the entire string is stored in dp[0][n-1].
+```
 
 ## Program:
 ```
